@@ -20,9 +20,7 @@ class Solution {
             result.add(current);
             return;
         }
-        char currentLetter = digits.charAt(index);
-        String keyPossible = pair.get(currentLetter);
-        for(char letter: keyPossible.toCharArray()){
+        for(char letter: pair.get(digits.charAt(index)).toCharArray()){
             backtrack(pair, result, digits, current+letter, index+1);
         }
     }

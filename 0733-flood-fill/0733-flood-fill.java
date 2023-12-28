@@ -7,7 +7,7 @@ class Solution {
         return image;
     }
     private void dfs(int[][] image, int sr, int sc, int targetColor, int currentColorNeedsToPaint){
-        if(sr < 0|| sc<0|| sr >= image.length || sc >= image[0].length || targetColor == currentColorNeedsToPaint || image[sr][sc] != currentColorNeedsToPaint)
+        if(sr < 0|| sc<0|| sr >= image.length || sc >= image[0].length || image[sr][sc] != currentColorNeedsToPaint)
             return;
         image[sr][sc] = targetColor;
         dfs(image, sr+1, sc, targetColor, currentColorNeedsToPaint);

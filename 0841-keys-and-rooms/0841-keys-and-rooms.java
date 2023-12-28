@@ -8,7 +8,7 @@ class Solution {
         }
         return true;
     }
-    private void dfs(List<List<Integer>> rooms, boolean[] vis, int room){
+    public void dfs(List<List<Integer>> rooms, boolean[] vis, int room){
         vis[room] = true;
         for(int r: rooms.get(room)){
             if(!vis[r])

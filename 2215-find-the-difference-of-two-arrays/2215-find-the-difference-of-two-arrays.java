@@ -1,32 +1,17 @@
 class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
-        Set<Integer> result = new TreeSet<>();
-        List<List<Integer>> output = new ArrayList<>();
-        boolean found = false;
-        for(int i: nums1){
-            found = false;
-            for(int j: nums2){
-                if( i == j){
-                    found = true;
-                    break;
-                }
-            }
-            if(!found) result.add(i);
-        }
-        output.add(new ArrayList<>(result));
-        result = new TreeSet<>();
-        for(int i: nums2){
-            found = false;
-            for(int j: nums1){
-                if( i == j){
-                    found = true;
-                    break;
-                }
-            }
-            if(!found) result.add(i);
-        }
-        output.add(new ArrayList<>(result));
-        result = new TreeSet<>();
-        return output;
+        HashSet<Integer> set1 = new HashSet<>();
+        HashSet<Integer> set2 = new HashSet<>();
+        for(int i: nums1) set1.add(i);
+        for(int i: nums2) set2.add(i);
+        List<Integer> result1 = new ArrayList<>();
+        List<Integer> result2 = new ArrayList<>();
+        for(int i: set1)
+            if(!set2.contains(i))
+                result1.add(i);
+        for(int i:set2)
+            if(!set1.contains(i))
+                result2.add(i);
+        return Arrays.asList(result1, result2);
     }
 }

@@ -1,0 +1,1 @@
+Try to use Adjancy list to store the connected componets and do the dfs to mark visited array, do dfs again for each neighbour and return count-1 since number of connection -1;

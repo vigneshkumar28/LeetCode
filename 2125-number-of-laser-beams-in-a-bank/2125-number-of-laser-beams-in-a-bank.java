@@ -1,9 +1,8 @@
 class Solution {
     public int numberOfBeams(String[] bank) {
-        int n = bank.length;
         int count = 0;
         int before = 0;
-        for(int i=0; i<n; i++){
+        for(int i=0; i<bank.length; i++){
            int ones = countOne(bank[i]);
            if( ones > 0){
                 count += (ones * before);

@@ -9,8 +9,7 @@ class Solution {
             if(i == 1){
                 return -1;
             }
-            int maxDiv = i %3;
-            if(maxDiv == 0){
+            if(i %3 == 0){
                  sum += i/3;
             }else{
                 sum += i/3 +1;

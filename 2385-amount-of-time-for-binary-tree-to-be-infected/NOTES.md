@@ -1,0 +1,1 @@
+dfs - left travel, right travel, depth and max of time to compute tree full infect

@@ -19,9 +19,6 @@ class Solution {
             rightBoundary[i] = stack.isEmpty()? n-1 : stack.peek()-1;
             stack.push(i);
         }
-        // System.out.println(Arrays.toString(heights));
-        // System.out.println(Arrays.toString(rightBoundary));
-        // System.out.println(Arrays.toString(leftBoundary));
         int maxHistogramRectangle = 0;
         for(int i=0; i<n;i++){
             int width = rightBoundary[i]-leftBoundary[i]+1;

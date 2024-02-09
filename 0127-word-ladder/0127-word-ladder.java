@@ -13,9 +13,11 @@ class Solution {
             for(int i=0;i<size;i++){
                 String word = q.poll();
                 if(word.equals(endWord))return lengthOfLadder;
+                char[] wordArr=word.toCharArray();
                 for(int j=0;j<word.length();j++){
+                    char ch= wordArr[j];
                     for(char c='a';c<='z';c++){
-                        char[] wordArr=word.toCharArray();
+                        if(wordArr[j]==c) continue;
                         wordArr[j]=c;
                         String newWord = new String(wordArr);
                         if(set.contains(newWord) && !vis.contains(newWord)){
@@ -23,6 +25,7 @@ class Solution {
                             vis.add(newWord);
                         }
                     }
+                    wordArr[j] = ch;
                 }
             }
             lengthOfLadder++;

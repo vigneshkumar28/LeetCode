@@ -1,4 +1,6 @@
 class Solution {
+    //LCS below code
+    //LPS means we need to pass s2 as reverse of s1 and remaining all are same as LCS code
     public int lcs(String s1, String s2, int m, int n,int[][] dp){
         if(m==0||n==0)
             return 0;

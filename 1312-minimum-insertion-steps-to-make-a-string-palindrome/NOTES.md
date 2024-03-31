@@ -1,1 +1,1 @@
-​
+LPS means we need to pass s2 as reverse of s1 and remaining all are same as LCS code

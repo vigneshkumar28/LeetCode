@@ -25,8 +25,6 @@ class Solution {
         for(int[] edge: edges){
             uf.merge(edge[0], edge[1]);
         }
-        int sourceVertex=uf.find(source);
-        int destinationVertex=uf.find(destination);
-        return sourceVertex == destinationVertex;
+        return uf.find(source) == uf.find(destination);
     }
 }

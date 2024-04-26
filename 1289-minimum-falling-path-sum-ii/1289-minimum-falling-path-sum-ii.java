@@ -2,9 +2,8 @@ class Solution {
     public int minFallingPathSum(int[][] grid) {
         int indexPreviousMinimum=0;
         int previousMinimum=0;
-        int previousSecondMinimum=0;
-       
-        for(int i=0;i< grid.length;i++){  
+        int previousSecondMinimum=0;       
+        for(int i=0;i<grid.length;i++){  
              int indexCurrentMinimum=0;
              int currentMinimum=Integer.MAX_VALUE;
              int secondCurrentMinimum=Integer.MAX_VALUE;                  
@@ -15,7 +14,7 @@ class Solution {
                     indexCurrentMinimum=j;
                     currentMinimum=current;
                 }else{
-                    secondCurrentMinimum=Math.min(current,secondCurrentMinimum);
+                secondCurrentMinimum=Math.min(current,secondCurrentMinimum);
                 } 
             }
             indexPreviousMinimum=indexCurrentMinimum;

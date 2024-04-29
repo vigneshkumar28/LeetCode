@@ -4,14 +4,15 @@ class Solution {
         for(int i: nums){
             finalXor = finalXor^i;
         }
-        int count=0;
-        while(k>0 || finalXor>0){
-            if((k%2) != (finalXor%2)){
-                count++;
-            }
-            k/=2;
-            finalXor/=2;
-        }
-        return count;
+        return Integer.bitCount(finalXor^k);
+        // int count=0;
+        // while(k>0 || finalXor>0){
+        //     if((k%2) != (finalXor%2)){
+        //         count++;
+        //     }
+        //     k/=2;
+        //     finalXor/=2;
+        // }
+        // return count;
     }
 }

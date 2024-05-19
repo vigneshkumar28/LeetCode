@@ -1,27 +1,25 @@
 class Solution {
     public long maximumValueSum(int[] nums, int k, int[][] edges) {
-        int N = nums.length;
-        int[] netChange = new int[N];
-        long nodeSum = 0;
-        for(int i=0;i<N;i++){
-            netChange[i] = (nums[i]^k)-nums[i];
-            nodeSum += nums[i];
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a , b) -> Integer.compare(b, a));
+
+        long sum = 0;
+        for(int num : nums){
+            sum += (long) num;
+            int xorNum = num ^ k;
+            pq.offer(xorNum - num);
         }
-        // sort & reverse
-        Arrays.sort(netChange);
-        for(int i=0;i<N/2; i++){
-            int temp= netChange[i];
-            netChange[i] = netChange[N-1-i];
-            netChange[N-1-i]=temp;
-        }
-        for(int i=0;i<N; i+=2){
-            if(i+1 == N){
-              break;  
+
+        while(pq.size() > 1){
+            int diff1 = pq.poll();
+            int diff2 = pq.poll();
+            
+            if(diff1 + diff2 > 0) {
+                sum += diff1 + diff2;
+            } else {
+                break;
             }
-            long pairSum = netChange[i]+netChange[i+1];
-            if(pairSum > 0)
-                nodeSum += pairSum;
         }
-        return nodeSum;
+
+        return sum;
     }
 }

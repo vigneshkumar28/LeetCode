@@ -6,8 +6,7 @@ class Solution {
             int xor=0;
             for(int j=i; j<arr.length; j++){
                 xor ^= arr[j];
-                if(xor == 0)
-                    count += (j-i);
+                if(xor == 0)count += (j-i);
             }
         }
         return count;

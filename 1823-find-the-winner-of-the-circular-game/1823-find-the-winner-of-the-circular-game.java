@@ -1,15 +1,15 @@
 class Solution {
     public int findTheWinner(int n, int k) {
-        List<Integer> circle = new LinkedList<Integer>();
+        Queue<Integer> circle = new LinkedList<Integer>();
         for(int i=1; i<=n; i++){
             circle.add(i);
         }
-        int startIndex=0;
         while(circle.size() > 1){
-            int removalIndex = (startIndex+k-1)%circle.size();
-            circle.remove(removalIndex);
-            startIndex = removalIndex;
+            for(int i=0;i<k-1;i++){
+                circle.add(circle.remove());
+            }
+            circle.remove();
         }
-        return circle.getFirst();
+        return circle.peek();
     }
 }

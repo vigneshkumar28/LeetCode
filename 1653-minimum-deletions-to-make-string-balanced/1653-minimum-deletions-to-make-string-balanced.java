@@ -1,17 +1,16 @@
 class Solution {
     public int minimumDeletions(String s) {
-        //dp
+        //space optimized dp
         int n=s.length();
-        int[] dp= new int[n+1];
+        int minDeletions=0;
         int bCount=0;
         for(int i=0;i<n;i++){
             if(s.charAt(i) == 'b'){
-                dp[i+1]=dp[i];
                 bCount++;
             }else{
-                dp[i+1]=Math.min(dp[i]+1, bCount);
+                minDeletions=Math.min(minDeletions+1, bCount);
             }
         }
-        return dp[n];
+        return minDeletions;
     }
 }

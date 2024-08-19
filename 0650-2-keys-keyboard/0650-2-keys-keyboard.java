@@ -1,15 +1,16 @@
 class Solution {
     public int minSteps(int n) {
         int ans=0;
-        //prime factor
-        int d=2;
-        while(n>1){
-            while(n%d == 0){
-                ans += d;
-                n/=d;
+       for(int i=2;i*i<=n;){
+            if(n%i==0){
+                ans+=i;
+                n=n/i;
+            }else{
+                i++;
             }
-            d++;
-        }
-        return ans++;
+       }
+       if(n!=1)
+           ans=ans+n;
+       return ans;
     }
 }
